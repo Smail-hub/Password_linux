@@ -22,19 +22,25 @@ def has_lower_letters(password):
 
 
 def has_symbols(password):
-        return any(not symbol.isdigit() and not symbol.isalpha() for symbol in password)
+    return any(
+        not symbol.isdigit() and not symbol.isalpha()
+        for symbol in password
+    )
 
 
 checks = [
-    has_digit, is_very_long, has_letters,
-    has_upper_letters, has_lower_letters,
-    has_symbols
+    has_digit,
+    is_very_long,
+    has_letters,
+    has_upper_letters,
+    has_lower_letters,
+    has_symbols,
 ]
 
 score = 0
 
-for checks in checks:
-    if checks(password):
+for check in checks:
+    if check(password):
         score += 2
 
 
